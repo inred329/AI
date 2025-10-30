@@ -5,8 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="TWSE Variation"
+        Height="450"
+        Width="900"
+        Loaded="Window_Loaded">
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
 
+        <DockPanel Grid.Row="0" LastChildFill="False" Margin="0 0 0 12">
+            <TextBlock x:Name="TitleTextBlock"
+                       FontSize="20"
+                       FontWeight="Bold"
+                       VerticalAlignment="Center" />
+            <Button Content="重新整理"
+                    Margin="12 0 0 0"
+                    Padding="12 4"
+                    VerticalAlignment="Center"
+                    Click="RefreshButton_Click" />
+        </DockPanel>
+
+        <DataGrid x:Name="VariationDataGrid"
+                  Grid.Row="1"
+                  AutoGenerateColumns="True"
+                  IsReadOnly="True"
+                  CanUserAddRows="False"
+                  Margin="0 0 0 12" />
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left">
+            <TextBlock Text="更新時間：" FontWeight="SemiBold" />
+            <TextBlock x:Name="TimestampTextBlock" />
+            <TextBlock Text="  " />
+            <TextBlock x:Name="StatusTextBlock" />
+        </StackPanel>
     </Grid>
 </Window>
